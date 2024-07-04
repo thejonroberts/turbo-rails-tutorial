@@ -1,0 +1,25 @@
+<%
+<<-COMMENT
+%>
+<h1>New quote</h1>
+
+<%= render "form", quote: @quote %>
+
+<br>
+
+<div>
+  <%= link_to "Back to quotes", quotes_path %>
+</div>
+<%
+COMMENT
+%>
+
+<main class="container">
+  <%= link_to sanitize("&larr; Back to quotes"), quotes_path %>
+
+  <div class="header">
+    <h1>New quote</h1>
+  </div>
+
+  <%= render "form", quote: @quote %>
+</main>
