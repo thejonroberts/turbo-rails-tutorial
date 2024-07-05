@@ -35,3 +35,24 @@ When our user clicks on the "Cancel" link for the edit quote form:
 The link is within a Turbo Frame of id dom_id(quote), so Turbo will only replace the content of this frame
 The link navigates to the Quotes#index page that contains a Turbo Frame with id dom_id(quote) that contains the HTML for this quote
 Turbo replaces the content of the dom_id(quote) Frame containing the form with the HTML for this quote
+
+Wrap up
+
+Transforming our application into a real-time one only took two lines of code, thanks to Turbo Rails.
+
+In our Quote model, we set three callbacks to broadcast creations, updates, and deletions to the "quotes" stream. Thanks to the broadcasts_to method, those three callbacks can be defined in one line.
+In our Quotes#index view, we explicitly mentioned that we want to subscribe to the changes that are broadcasted to the "quotes" stream.
+
+
+DEVISE IN TESTS:
+in test_helper.rb: (ActiveSupport::TestCase)
+include Devise::Test::IntegrationHelpers
+use helper for any tests requiring user:
+sign_in users(:accountant)
+
+CHANNEL SECURITY FOR ACTIONCABLE;
+model:
+broadcasts_to ->(quote) { [quote.company, "quotes"] }, inserts_by: :prepend
+view:
+<%= turbo_stream_from(current_company, "quotes") %>
+
