@@ -25,7 +25,10 @@ class LineItemDatesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "First quote"
 
     within id: dom_id(@line_item_date) do
-      click_on "Edit"
+      # within id: dom_id(@line_item_date, :edit) do
+      within '.line-item-date__header' do
+        click_on "Edit"
+      end
     end
 
     assert_selector "h1", text: "First quote"
@@ -41,7 +44,10 @@ class LineItemDatesTest < ApplicationSystemTestCase
 
     accept_confirm do
       within id: dom_id(@line_item_date) do
-        click_on "Delete"
+      # within id: dom_id(@line_item_date, :edit) do
+        within '.line-item-date__header' do
+          click_on "Delete"
+        end
       end
     end
 
