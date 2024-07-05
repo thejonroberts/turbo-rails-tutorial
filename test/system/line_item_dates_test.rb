@@ -24,11 +24,8 @@ class LineItemDatesTest < ApplicationSystemTestCase
   test "Updating a line item date" do
     assert_selector "h1", text: "First quote"
 
-    within id: dom_id(@line_item_date) do
-      # within id: dom_id(@line_item_date, :edit) do
-      within '.line-item-date__header' do
-        click_on "Edit"
-      end
+    within id: dom_id(@line_item_date, :edit) do
+      click_on "Edit"
     end
 
     assert_selector "h1", text: "First quote"
@@ -43,11 +40,8 @@ class LineItemDatesTest < ApplicationSystemTestCase
     assert_text I18n.l(Date.current, format: :long)
 
     accept_confirm do
-      within id: dom_id(@line_item_date) do
-      # within id: dom_id(@line_item_date, :edit) do
-        within '.line-item-date__header' do
-          click_on "Delete"
-        end
+      within id: dom_id(@line_item_date, :edit) do
+        click_on "Delete"
       end
     end
 
