@@ -15,7 +15,7 @@
 COMMENT
 %>
 
-<main class="container">
+<main class="container mb-xxxxl">
   <%= link_to sanitize("&larr; Back to quotes"), quotes_path %>
   <div class="header">
     <h1>
@@ -32,3 +32,5 @@ COMMENT
     <%= render @line_item_dates, quote: @quote %>
   <% end %>
 </main>
+
+<%= render "quotes/total", quote: @quote %>

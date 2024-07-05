@@ -56,4 +56,12 @@ broadcasts_to ->(quote) { [quote.company, "quotes"] }, inserts_by: :prepend
 view:
 <%= turbo_stream_from(current_company, "quotes") %>
 
-nested_dom_id(parent, identifier)
+
+Note: Now that we have more experience with Turbo Frames, let's discuss when to use a <turbo-frame> tag or a <div>.
+
+We must use a Turbo Frame when we need Turbo to intercept clicks on links and form sumbissions for us. For example, the content of the line_items/_line_item.html.erb partial must be wrapped inside a Turbo Frame because when we click on the "Edit" button for a line item, we want Turbo to replace the content of this Turbo Frame with the form extracted from the LineItems#edit page. This feature wouldn't work with a simple div.
+
+On the other hand, we don't need a Turbo Frame when we only target an id of the DOM in a Turbo Stream view. For example, we didn't use a Turbo Frame for flash messages. Instead, we used a div with an id of flash to prepend new messages. We could have used a div with the id of quotes on the Quotes#index page instead of a Turbo Frame, because the quotes id is only used in Turbo Stream views to prepend quotes to the list. It never serves to intercept clicks on links and form submissions.
+
+My personal preference here is always to use Turbo Frame tags as it makes it obvious that the id is used somewhere in a Turbo Stream view. This is why we use Turbo Frames everywhere in this tutorial. However, it is perfectly fine if you disagree and prefer to use a div when you don't need a Turbo Frame.
+
