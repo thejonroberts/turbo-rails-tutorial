@@ -56,3 +56,4 @@ broadcasts_to ->(quote) { [quote.company, "quotes"] }, inserts_by: :prepend
 view:
 <%= turbo_stream_from(current_company, "quotes") %>
 
+nested_dom_id(parent, identifier)
