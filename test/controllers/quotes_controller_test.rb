@@ -2,6 +2,7 @@ require "test_helper"
 
 class QuotesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in users(:accountant)
     @quote = quotes(:one)
   end
 

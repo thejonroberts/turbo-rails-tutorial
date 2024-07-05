@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class QuotesTest < ApplicationSystemTestCase
   setup do
+    sign_in users(:accountant)
     @quote = quotes(:one) # Reference to the first fixture quote
   end
 
