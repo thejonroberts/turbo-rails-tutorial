@@ -8,6 +8,12 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+    <% if Rails.env == 'development' %>
+      <%# set these values in .env.local %>
+      <%= tag :meta, name: :stimulus_debug, content: true if ENV.fetch("STIMULUS_DEBUG", false) %>
+      <% console if ENV.fetch("WEB_CONSOLE", false) %>
+    <% end %>
   </head>
 
   <body>
@@ -16,6 +22,5 @@
       <%= render "layouts/flash" %>
     </div>
     <%= yield %>
-    <% console if Rails.env == 'development' && ENV["WEB_CONSOLE"] %>
   </body>
 </html>
