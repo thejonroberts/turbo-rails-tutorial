@@ -19,14 +19,14 @@ class QuotesController < ApplicationController
     @quote = current_company.quotes.build(quote_params)
 
     if @quote.save
-    respond_to do |format|
-      notice = "Quote was successfully created."
-      format.html { redirect_to quotes_path, notice: }
-      format.turbo_stream { flash.now[:notice] = notice }
+      respond_to do |format|
+        notice = "Quote was successfully created."
+        format.html { redirect_to quotes_path, notice: }
+        format.turbo_stream { flash.now[:notice] = notice }
+      end
+    else
+      render :new, status: :unprocessable_entity
     end
-  else
-    render :new, status: :unprocessable_entity
-  end
   end
 
   def edit

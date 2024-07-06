@@ -39,11 +39,11 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
 
-  respond_to do |format|
-    notice = "Date was successfully destroyed."
-    format.html { redirect_to quote_path(@quote), notice: }
-    format.turbo_stream { flash.now[:notice] = notice }
-  end
+    respond_to do |format|
+      notice = "Date was successfully destroyed."
+      format.html { redirect_to quote_path(@quote), notice: }
+      format.turbo_stream { flash.now[:notice] = notice }
+    end
   end
 
   private

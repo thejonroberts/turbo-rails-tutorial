@@ -18,7 +18,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create quote" do
     assert_difference("Quote.count") do
-      post quotes_url, params: { quote: { name: 'test quote' } }
+      post quotes_url, params: {quote: {name: "test quote"}}
     end
 
     assert_redirected_to quotes_url
@@ -35,8 +35,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update quote" do
-    patch quote_url(@quote), params: { quote: { name: 'different name' } }
-    # assert_redirected_to quote_url(@quote)
+    patch quote_url(@quote), params: {quote: {name: "different name"}}
     assert_redirected_to quotes_url
   end
 

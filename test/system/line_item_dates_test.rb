@@ -6,7 +6,7 @@ class LineItemDatesTest < ApplicationSystemTestCase
   setup do
     login_as users(:accountant)
 
-    @quote          = quotes(:one)
+    @quote = quotes(:one)
     @line_item_date = line_item_dates(:today)
 
     visit quote_path(@quote)

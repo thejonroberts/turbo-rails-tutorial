@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-#
+
 # Uncomment this and change the path if necessary to include your own
 # components.
 # See https://github.com/heartcombo/simple_form#custom-components to know
@@ -68,11 +68,11 @@ SimpleForm.setup do |config|
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
   end
 
-# Default configuration FROM TUTORIAL
+  # Default configuration FROM TUTORIAL
   config.generate_additional_classes_for = []
   # config.default_wrapper                 = :default
   # config.button_class                    = "btn"
-  config.label_text                      = lambda { |label, _, _| label }
+  config.label_text = lambda { |label, _, _| label }
   # config.error_notification_tag          = :div
   # config.error_notification_class        = "error_notification"
 
@@ -86,7 +86,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = "btn"
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -97,7 +97,7 @@ SimpleForm.setup do |config|
   config.error_notification_tag = :div
 
   # CSS class to add for error notification helper.
-  config.error_notification_class = 'error_notification'
+  config.error_notification_class = "error_notification"
 
   # Series of attempts to detect a default label method for collection.
   # config.collection_label_methods = [ :to_label, :name, :title, :to_s ]
@@ -173,7 +173,7 @@ SimpleForm.setup do |config|
   # config.input_class = nil
 
   # Define the default class of the input wrapper of the boolean input.
-  config.boolean_label_class = 'checkbox'
+  config.boolean_label_class = "checkbox"
 
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.

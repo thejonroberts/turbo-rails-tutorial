@@ -1,6 +1,6 @@
 class Quote < ApplicationRecord
   belongs_to :company
-  has_many :line_item_dates, dependent: :destroy #, strict_loading: true
+  has_many :line_item_dates, dependent: :destroy # TODO, strict_loading: true
   has_many :line_items, through: :line_item_dates
 
   validates :name, presence: true
