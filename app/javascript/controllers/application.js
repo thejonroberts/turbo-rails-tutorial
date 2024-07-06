@@ -7,6 +7,6 @@ if (document.head.querySelector("meta[name=stimulus_debug]")) {
   application.debug = true
 }
 
-window.Stimulus   = application
+window.Stimulus = application
 
 export { application }
