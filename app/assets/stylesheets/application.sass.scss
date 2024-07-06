@@ -27,3 +27,7 @@
 // Layouts
 @import "layouts/container";
 @import "layouts/header";
+
+// Development helpers: must have env vars set.
+// see files and/or application.html.erb
+@import "debug";

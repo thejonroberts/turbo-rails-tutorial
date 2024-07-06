@@ -16,7 +16,7 @@
     <% end %>
   </head>
 
-  <body>
+  <body class="<%= 'debug-turbo' if ENV.fetch("TURBO_DEBUG", false) %>">
     <%= render "layouts/navbar" %>
     <div id="flash" class="flash">
       <%= render "layouts/flash" %>
