@@ -1,31 +1,77 @@
 // stolen from https://github.com/guillaumebriday/turbo-frames-debug and slightly modified
-// must have TURBO_DEBUG env var set
+// must have HOTWIRE_DEBUG env var set
 :root {
+  --hotwire-debug-z-index: 9999;
+  --hotwire-debug-font-size: 0.7rem;
+  --hotwire-debug-border-radius: 0.25rem;
+
   --turbo-frame-debug-color: #3B82F6;
-  --turbo-frame-debug-z-index: 9999;
-  --turbo-frame-debug-font-size: 0.7rem;
-  --turbo-frame-debug-border-radius: 0.25rem;
+  --stimulus-controller-debug-color: #bada55;
+  --stimulus-target-debug-color: #0ac241;
 }
 
-.debug-turbo {
-  turbo-frame {
-    border: 1px var(--turbo-frame-debug-color) solid;
+// no way to wildcard attr selector, so list here as created/needed
+// data-`controller`-target - hook into `rails g stimulus controller`?
+$stimulus-targets: "[data-line-item-dates-target]";
+
+.debug-hotwire {
+
+  // all
+  turbo-frame,
+  [data-controller],
+  #{$stimulus-targets} {
     display: block;
-    border-radius: var(--turbo-frame-debug-border-radius);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--hotwire-debug-border-radius);
+
 
     &::before {
-      content: "#" attr(id);
       display: inline-block;
       position: relative;
       top: -1rem;
       right: -0.5rem;
-      color: var(--turbo-frame-debug-color);
-      font-size: var(--turbo-frame-debug-font-size);
-      z-index: var(--turbo-frame-debug-z-index);
+      font-size: var(--hotwire-debug-font-size);
+      z-index: var(--hotwire-debug-z-index);
       background-color: #fff;
       padding: 0.05rem;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: var(--hotwire-debug-border-radius);
+    }
+  }
+
+  // turbo
+  turbo-frame {
+    border-color: var(--turbo-frame-debug-color);
+
+    &::before {
+      content: "#" attr(id);
+      color: var(--turbo-frame-debug-color);
       border: 1px var(--turbo-frame-debug-color) solid;
-      border-radius: var(--turbo-frame-debug-border-radius);
+    }
+  }
+
+
+  // stimulus controllers
+  [data-controller] {
+    border-color: var(--stimulus-controller-debug-color);
+
+    &::before {
+      content: attr(data-controller) " controller";
+      color: var(--stimulus-controller-debug-color);
+      border-color: var(--stimulus-controller-debug-color);
+    }
+  }
+
+  // stimulus targets
+  #{$stimulus-targets} {
+    border-color: var(--stimulus-target-debug-color);
+
+    &::before {
+      content: "target"; // what to display for targets & how...
+      color: var(--stimulus-target-debug-color);
+      border-color: var(--stimulus-target-debug-color);
     }
   }
 }
