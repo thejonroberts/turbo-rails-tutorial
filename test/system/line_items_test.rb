@@ -54,13 +54,13 @@ class LineItemSystemTest < ApplicationSystemTestCase
   test "Destroying a line item" do
     within "##{dom_id(@line_item_date)}" do
       assert_text @line_item.name
-    end
 
-    within "##{dom_id(@line_item)}" do
-      click_on "Delete"
-    end
+      accept_confirm do
+        within "##{dom_id(@line_item)}" do
+          click_on "Delete"
+        end
+      end
 
-    within "##{dom_id(@line_item_date)}" do
       assert_no_text @line_item.name
     end
 

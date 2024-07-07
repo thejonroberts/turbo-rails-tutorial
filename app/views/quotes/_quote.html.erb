@@ -16,6 +16,7 @@ COMMENT
       <%= button_to "Delete",
                     quote_path(quote),
                     method: :delete,
+                    form: { data: { turbo_confirm: "Are you sure?" }},
                     class: "btn btn--light" %>
       <%= link_to "Edit",
                   edit_quote_path(quote),
