@@ -1,6 +1,6 @@
 class LineItemDate < ApplicationRecord
   belongs_to :quote
-  has_many :line_items, dependent: :destroy # TODO:, strict_loading: true
+  has_many :line_items, dependent: :destroy_async
 
   validates :date, presence: true, uniqueness: {scope: :quote_id}
 

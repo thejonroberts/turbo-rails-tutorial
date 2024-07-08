@@ -1,7 +1,8 @@
 class Quote < ApplicationRecord
   belongs_to :company
-  has_many :line_item_dates, dependent: :destroy # TODO, strict_loading: true
-  has_many :line_items, through: :line_item_dates
+  # NOTE: Cannot have db foreign key constraint to destroy_async.
+  has_many :line_item_dates, dependent: :destroy_async
+  has_many :line_items, through: :line_item_dates, dependent: :destroy_async
 
   validates :name, presence: true
 
@@ -10,6 +11,10 @@ class Quote < ApplicationRecord
   broadcasts_to ->(quote) { [quote.company, "quotes"] }, inserts_by: :prepend
 
   def total_price
-    line_items.sum(&:total_price)
+    # NOTE: don't know of any way to preload except per call, and that gets tricky (in views)
+    strict_loading!(false)
+    price = line_items.reload.sum(&:total_price)
+    strict_loading!(true) # ? better way to temporarily disable strict loading?
+    price
   end
 end

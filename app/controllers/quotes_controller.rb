@@ -55,7 +55,7 @@ class QuotesController < ApplicationController
 
   def set_quote
     @quote = current_company.quotes
-      .includes([line_item_dates: :line_items])
+      .includes(:line_item_dates, :line_items)
       .find(params[:id])
   end
 

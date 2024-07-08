@@ -23,5 +23,9 @@ module QuoteEditor
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.active_record.strict_loading_by_default = true
+    # NOTE: uncomment next line to debug: log rather than raise an error.
+    # config.active_record.action_on_strict_loading_violation = :warn
   end
 end
