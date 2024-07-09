@@ -1,27 +1,3 @@
-<%
-<<-COMMENT
-%>
-<%= form_with(model: quote) do |form| %>
-  <% if quote.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
-
-      <ul>
-        <% quote.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-<%
-COMMENT
-%>
-
 <%= simple_form_for quote, html: { class: "quote form" } do |f| %>
   <%= form_error_notification(quote) %>
 

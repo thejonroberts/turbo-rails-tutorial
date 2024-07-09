@@ -1,12 +1,3 @@
-<%
-<<-COMMENT
-%>
-<div id="<%= dom_id quote %>">
-</div>
-<%
-COMMENT
-%>
-
 <%= turbo_frame_tag quote do %>
   <div class="quote">
     <%= link_to quote.name,

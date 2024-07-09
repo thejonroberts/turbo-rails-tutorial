@@ -1,20 +1,3 @@
-<%
-<<-COMMENT
-%>
-<h1>Editing quote</h1>
-
-<%= render "form", quote: @quote %>
-
-<br>
-
-<div>
-  <%= link_to "Show this quote", @quote %> |
-  <%= link_to "Back to quotes", quotes_path %>
-</div>
-<%
-COMMENT
-%>
-
 <main class="container">
   <%= link_to sanitize("&larr; Back to quote"), quote_path(@quote) %>
 
