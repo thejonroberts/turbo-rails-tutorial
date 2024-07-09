@@ -55,10 +55,10 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows]
   gem "dotenv", "~> 3.1"
 
-  gem "rubocop"
-  gem "rubocop-minitest"
+  gem "rubocop", require: false
+  gem "rubocop-minitest", require: false
   gem "standard", "~> 1.39", require: false
-  gem "standard-rails"
+  gem "standard-rails", require: false
 end
 
 group :development do
