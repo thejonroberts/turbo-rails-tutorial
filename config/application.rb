@@ -6,6 +6,9 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# .env.local ignored in test environment by default. Allow it.
+Dotenv::Rails.files.unshift(".env.local") if ENV["RAILS_ENV"] == "test"
+
 module QuoteEditor
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

@@ -61,4 +61,9 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # logger levels: :debug, :info, :warn, :error, :fatal.
+  # Set in .env.test / .env.test.local to change the log level.
+  config.logger = Logger.new($stdout) if ENV["STDOUT_LOG"].present?
+  config.log_level = ENV.fetch("LOG_LEVEL", :warn).to_sym
 end

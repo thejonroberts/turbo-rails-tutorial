@@ -7,9 +7,12 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore all environment files (except templates).
+# Ignore all environment files (except templates, development, test).
 /.env*
 !/.env*.erb
+!/.env.development
+!/.env.test
+!/.env.production
 
 # Ignore all logfiles and tempfiles.
 /log/*
