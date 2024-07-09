@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
     # as it is needed on most all views.
     # see https://github.com/heartcombo/devise/issues/5452
     @current_user ||= super.tap do |user|
-      # user.strict_loading!(false) # Can disable strict_loading instead if this is causing issues
-      ActiveRecord::Associations::Preloader.new(records: [user], associations: [:company]).call
+      # user.strict_loading!(false) if user # Can disable strict_loading instead if this is causing issues
+      ActiveRecord::Associations::Preloader.new(records: [user], associations: [:company]).call if user
     end
   end
   helper_method :current_user
