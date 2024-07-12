@@ -76,7 +76,6 @@ group :development do
   # gem "spring"
 
   # IDE gems to avoid system gem installs in containers
-  gem "ruby-lsp-rails", require: false
 end
 
 group :test do
