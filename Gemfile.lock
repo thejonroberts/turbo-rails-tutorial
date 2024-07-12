@@ -343,6 +343,8 @@ DEPENDENCIES
   redis (>= 4.0.1)
   rubocop
   rubocop-minitest
+  rubocop-performance
+  rubocop-rails
   selenium-webdriver
   simple_form (~> 5.3)
   sprockets-rails

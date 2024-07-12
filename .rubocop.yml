@@ -1,3 +1,6 @@
+# inspired by
+# https://evilmartians.com/chronicles/rubocoping-with-legacy-bring-your-ruby-code-up-to-standard
+
 inherit_mode:
   merge:
     - Exclude
@@ -6,23 +9,43 @@ require:
   - standard
   - standard-custom
   - standard-performance
+  - rubocop-minitest
   - rubocop-performance
   - rubocop-rails
 
 inherit_gem:
-  # standard: config/base.yml
+  # https://github.com/standardrb/standard#running-standards-rules-via-rubocop
   standard: config/ruby-3.3.yml
   standard-performance: config/base.yml
   standard-custom: config/base.yml
   standard-rails: config/base.yml
 
-inherit_from:
-  - .rubocop/minitest.yml
-  # - .rubocop/custom.yml
-  # - .rubocop_todo.yml
-  - .rubocop/strict.yml
-
 AllCops:
   NewCops: disable
   SuggestExtensions: false
   TargetRubyVersion: 3.3
+
+# Strict rules to prevent todos
+Lint/Debugger: # don't leave binding.pry or debugger
+  Enabled: true
+  Exclude: []
+
+Minitest/Focus: # run ALL tests on CI
+  Enabled: true
+  Exclude: []
+
+Rails/Output: # Don't leave puts-debugging
+  Enabled: true
+  Exclude: []
+
+Rails/FindEach: # each could severely affect the performance, use find_each
+  Enabled: true
+  Exclude: []
+
+Rails/UniqBeforePluck: # uniq.pluck and not pluck.uniq
+  Enabled: true
+  Exclude: []
+
+# Customizationization of rules
+Rails/DefaultScope:
+  Enabled: true
