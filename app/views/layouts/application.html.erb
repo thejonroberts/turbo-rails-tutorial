@@ -8,6 +8,9 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <meta name="turbo-refresh-method" content="morph">
+    <meta name="view-transition" content="same-origin">
+    <meta name="turbo-refresh-scroll" content="preserve">
 
     <% if Rails.env == 'development' %>
       <%# set these values in .env.local %>
