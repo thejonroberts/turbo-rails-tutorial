@@ -1,0 +1,64 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+	"name": "Existing Dockerfile",
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile.development"
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [
+		3000
+	],
+	// Use 'portsAttributes' to set default properties for specific forwarded ports.
+	// More info: https://containers.dev/implementors/json_reference/#port-attributes
+	"portsAttributes": {
+		"3000": {
+			"label": "rails server",
+			"onAutoForward": "openBrowser"
+		}
+	},
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bin/setup",
+	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "devcontainer",
+	"mounts": [
+		// https://code.visualstudio.com/docs/devcontainers/tips-and-tricks#_persisting-user-profile
+		// "source=profile,target=/root,type=volume",
+		// "target=/root/.vscode-server,type=volume"
+	],
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {
+				"[ruby]": {
+					"editor.defaultFormatter": "Shopify.ruby-lsp", // Use the Ruby LSP as the default formatter
+					"editor.formatOnSave": true, // Format files automatically when saving
+					"editor.tabSize": 2, // Use 2 spaces for indentation
+					"editor.insertSpaces": true, // Use spaces and not tabs for indentantion
+					"editor.semanticHighlighting.enabled": true, // Enable semantic highlighting
+					"editor.formatOnType": true, // Enable formatting while typing
+				},
+				"files.associations": {
+					// "*.css": "tailwindcss"
+				},
+				"editor.quickSuggestions": {
+					"strings": "on"
+				},
+				"rubyLsp.formatter": "auto",
+				"rubyLsp.rubyVersionManager": {
+					"identifier": "auto"
+				},
+			},
+			"extensions": [
+				"Shopify.ruby-lsp",
+				"dbaeumer.vscode-eslint",
+				"setobiralo.erb-commenter",
+				"elliotlarson.ruby-around-the-block"
+			]
+		}
+	}
+}
