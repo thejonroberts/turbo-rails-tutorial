@@ -14,12 +14,12 @@
 
     <% if Rails.env == 'development' %>
       <%# set these values in .env.local %>
-      <%= tag :meta, name: :stimulus_debug, content: true if ENV.fetch("STIMULUS_DEBUG", false) %>
+      <%= tag.meta(name: :stimulus_debug, content: true) if ENV.fetch("STIMULUS_DEBUG", false) %>
       <% console if ENV.fetch("WEB_CONSOLE", false) %>
     <% end %>
   </head>
 
-  <body class="<%= 'debug-hotwire' if ENV.fetch("HOTWIRE_DEBUG", false) %>">
+  <body class="<%= "debug-hotwire" if ENV.fetch("HOTWIRE_DEBUG", false) %>">
     <%= render "layouts/navbar" %>
     <div id="flash" class="flash">
       <%= render "layouts/flash" %>

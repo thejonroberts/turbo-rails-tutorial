@@ -79,6 +79,9 @@ group :development do
   # gem "spring"
 
   # IDE gems to avoid system gem installs in containers
+  gem "htmlbeautifier", require: false
+  gem "erb_lint", require: false
+  gem "better_html", require: false
 end
 
 group :test do

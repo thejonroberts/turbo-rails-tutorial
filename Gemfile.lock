@@ -80,6 +80,13 @@ GEM
     ast (2.4.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
+    better_html (2.1.1)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.3)
@@ -111,9 +118,17 @@ GEM
       warden (~> 1.2.3)
     dotenv (3.1.2)
     drb (2.2.1)
+    erb_lint (0.5.0)
+      activesupport
+      better_html (>= 2.0.1)
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
     erubi (1.13.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    htmlbeautifier (1.4.3)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
@@ -264,6 +279,7 @@ GEM
     simple_form (5.3.1)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    smart_properties (1.17.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -330,12 +346,15 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  better_html
   bootsnap
   capybara
   cssbundling-rails
   debug
   devise (~> 4.9)
   dotenv (~> 3.1)
+  erb_lint
+  htmlbeautifier
   jbuilder
   jsbundling-rails
   puma (>= 5.0)

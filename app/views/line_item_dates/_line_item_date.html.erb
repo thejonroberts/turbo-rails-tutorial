@@ -1,7 +1,7 @@
 <%= turbo_frame_tag line_item_date do %>
   <div class="line-item-date">
     <%= turbo_frame_tag dom_id(line_item_date, :edit) do %>
-      <%= render 'line_item_dates/header', quote:, line_item_date: %>
+      <%= render "line_item_dates/header", quote:, line_item_date: %>
     <% end %>
     <div class="line-item-date__body">
       <div class="line-item line-item--header">
