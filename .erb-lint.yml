@@ -1,11 +1,20 @@
 ---
+glob: '**/*.html{+*,}.erb'
 EnableDefaultLinters: true
 linters:
   ErbSafety:
     enabled: true
-    # better_html_config: .better-html.yml
+    better_html_config: .better-html.yml
   FinalNewline:
     enabled: true
+  # Requires i18n translations for all string content. undocumented currently.
+  # HardCodedString:
+  #   enabled: true
+  # PartialInstanceVariable:
+  #   enabled: true
+  # https://github.com/Shopify/erb-lint?tab=readme-ov-file#requirescriptnonce
+  # RequireScriptNonce:
+  #   enabled: false
   Rubocop:
     enabled: true
     rubocop_config:

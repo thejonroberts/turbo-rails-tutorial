@@ -48,6 +48,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "simple_form", "~> 5.3"
+gem "better_html", "~> 2.1"
 gem "devise", "~> 4.9"
 
 group :development, :test do
@@ -81,7 +82,6 @@ group :development do
   # IDE gems to avoid system gem installs in containers
   gem "htmlbeautifier", require: false
   gem "erb_lint", require: false
-  gem "better_html", require: false
 end
 
 group :test do
