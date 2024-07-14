@@ -19,6 +19,7 @@ class LineItemSystemTest < ApplicationSystemTestCase
     within "##{dom_id(@line_item_date)}" do
       click_on "Add item", match: :first
     end
+
     assert_selector "h1", text: "First quote"
 
     fill_in "Name", with: "Animation"
@@ -39,6 +40,7 @@ class LineItemSystemTest < ApplicationSystemTestCase
     within "##{dom_id(@line_item)}" do
       click_on "Edit"
     end
+
     assert_selector "h1", text: "First quote"
 
     fill_in "Name", with: "Capybara article"

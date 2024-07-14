@@ -12,6 +12,8 @@ require:
   - rubocop-minitest
   - rubocop-performance
   - rubocop-rails
+  - rubocop-capybara
+  # - rubocop-factory_bot
 
 inherit_gem:
   # https://github.com/standardrb/standard#running-standards-rules-via-rubocop
@@ -21,11 +23,11 @@ inherit_gem:
   standard-rails: config/base.yml
 
 AllCops:
-  NewCops: disable
+  NewCops: enable
   SuggestExtensions: false
   TargetRubyVersion: 3.3
 
-# Strict rules to prevent todos
+# Strict rules to prevent todo overrides
 Lint/Debugger: # don't leave binding.pry or debugger
   Enabled: true
   Exclude: []
@@ -47,5 +49,9 @@ Rails/UniqBeforePluck: # uniq.pluck and not pluck.uniq
   Exclude: []
 
 # Customizationization of rules
+Minitest/MultipleAssertions:
+  Exclude:
+    # multiple assertions in capybara tests are okay (expensive/multi-step)
+    - 'test/system/**/*'
 Rails/DefaultScope:
   Enabled: true

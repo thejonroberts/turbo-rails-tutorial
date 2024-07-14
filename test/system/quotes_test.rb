@@ -8,6 +8,7 @@ class QuotesTest < ApplicationSystemTestCase
 
   test "Creating a new quote" do
     visit quotes_path
+
     assert_selector "h1", text: "Quotes"
 
     click_on "New quote"
@@ -20,13 +21,14 @@ class QuotesTest < ApplicationSystemTestCase
 
   test "Showing a quote" do
     visit quotes_path
-    click_link @quote.name
+    click_on @quote.name
 
     assert_selector "h1", text: @quote.name
   end
 
   test "Updating a quote" do
     visit quotes_path
+
     assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
@@ -39,11 +41,13 @@ class QuotesTest < ApplicationSystemTestCase
 
   test "Destroying a quote" do
     visit quotes_path
+
     assert_text @quote.name
 
     accept_confirm do
       click_on "Delete", match: :first
     end
+
     assert_no_text @quote.name
   end
 

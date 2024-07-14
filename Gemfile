@@ -59,9 +59,10 @@ group :development, :test do
 
   # Syntax:
   gem "rubocop", require: false
+  gem "rubocop-capybara", require: false
   gem "rubocop-minitest", require: false
-  gem "rubocop-rails", require: false
   gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
   gem "standard", "~> 1.39", require: false
   gem "standard-rails", require: false
 

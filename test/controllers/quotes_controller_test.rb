@@ -8,11 +8,13 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get quotes_url
+
     assert_response :success
   end
 
   test "should get new" do
     get new_quote_url
+
     assert_response :success
   end
 
@@ -26,16 +28,19 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should show quote" do
     get quote_url(@quote)
+
     assert_response :success
   end
 
   test "should get edit" do
     get edit_quote_url(@quote)
+
     assert_response :success
   end
 
   test "should update quote" do
     patch quote_url(@quote), params: {quote: {name: "different name"}}
+
     assert_redirected_to quotes_url
   end
 
