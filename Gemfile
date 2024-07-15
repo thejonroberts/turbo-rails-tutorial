@@ -48,14 +48,12 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "simple_form", "~> 5.3"
-gem "better_html", "~> 2.1"
 gem "devise", "~> 4.9"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri windows]
   gem "dotenv", "~> 3.1"
-  # gem "foreman"
 
   # Syntax:
   gem "rubocop", require: false
@@ -68,6 +66,8 @@ group :development, :test do
 
   # gem "rubycritic", require: false
   # gem "flog", require: false
+  gem "better_html", require: false
+  gem "erb_lint", require: false
 end
 
 group :development do
@@ -82,7 +82,6 @@ group :development do
 
   # IDE gems to avoid system gem installs in containers
   gem "htmlbeautifier", require: false
-  gem "erb_lint", require: false
 end
 
 group :test do
