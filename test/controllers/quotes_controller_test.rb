@@ -2,8 +2,9 @@ require "test_helper"
 
 class QuotesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    sign_in users(:accountant)
-    @quote = quotes(:one)
+    user = users :accountant
+    sign_in user
+    @quote = create :quote, company: user.company
   end
 
   test "should get index" do

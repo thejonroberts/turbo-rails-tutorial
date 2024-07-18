@@ -4,6 +4,7 @@ require "rails/test_help"
 
 module ActiveSupport
   class TestCase
+    include FactoryBot::Syntax::Methods
     include Devise::Test::IntegrationHelpers
 
     # Run tests in parallel with specified workers

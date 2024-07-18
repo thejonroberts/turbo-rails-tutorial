@@ -66,6 +66,8 @@ group :development, :test do
 
   # gem "rubycritic", require: false
   # gem "flog", require: false
+
+  gem "factory_bot"
   gem "better_html", require: false
   gem "erb_lint", require: false
 end
